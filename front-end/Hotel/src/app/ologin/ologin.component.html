@@ -1,0 +1,24 @@
+<button mat-raised-button color="accent" routerLink="/home" >Home Page</button><div class="back">
+    <form #ologinForm="ngForm" (ngSubmit)="onSubmit(ologinForm)">
+        <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="userService.selectedUser._id">
+        <h2>Login</h2>
+        <label for="email">Username</label>
+        <input type="text" name="username" #name="ngModel" [(ngModel)]="userService.selectedUser.username" required>
+        <div class="email error"></div>
+        <label for="password">Password</label>
+        <input type="password" name="password"  #name="ngModel" [(ngModel)]="userService.selectedUser.password" required>
+        <div class="password error"></div>
+        <button type="submit" style=" margin-top: 30px;
+        border-radius: 36px;
+        background: #FEE996;
+        border:0;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 0.8em;
+        display: block;
+        padding: 10px 16px;
+        letter-spacing: 2px;">Login</button>
+        <div class="alert" *ngIf="serverErrorMessages">
+            {{serverErrorMessages}}
+        </div>
+    </form></div>

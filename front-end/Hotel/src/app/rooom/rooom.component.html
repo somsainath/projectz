@@ -1,0 +1,104 @@
+<button mat-raised-button color="accent" routerLink="/manager">Home</button>
+<div class="row">
+    <div class="col s12">
+      <div class="card">
+        <div class="card-content">
+          <div class="row">
+            <div class="col s5">
+              <form #roomForm="ngForm" (ngSubmit)="onSubmit(roomForm)">
+                <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="roomService.selectedRoom._id" >
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input type="text" name="roomNo" #name="ngModel" [(ngModel)]="roomService.selectedRoom.roomNo" required>
+                        <label>Room Number</label>
+                    </div>
+                </div>
+        
+                
+        <div class="row">
+            <div class="input-field col s12">
+                <input type="text" name="roomType" #name="ngModel" [(ngModel)]="roomService.selectedRoom.roomType">
+                <label>Room Type</label>
+            </div>
+        </div>
+        
+
+        <div class="row">
+            <div class="input-field col s12">
+                <input type="text" name="occupancy" #name="ngModel" [(ngModel)]="roomService.selectedRoom.occupancy">
+                <label>occupancy</label>
+            </div>
+        </div>
+    
+
+       
+        <div class="row">
+            <div class="input-field col s12">
+                <input type="text" name="price" #name="ngModel" [(ngModel)]="roomService.selectedRoom.price">
+                <label>Price</label>
+            </div>
+        </div>
+    
+
+
+
+        <div class="row">
+            <div class="input-field col s12">
+                <input type="text" name="description" #name="ngModel" [(ngModel)]="roomService.selectedRoom.description">
+                <label>Description</label>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="input-field col s12 rows s7">
+                <input type="text" name="status" #name="ngModel" [(ngModel)]="roomService.selectedRoom.status">
+                <label>Status</label>
+            </div>
+        </div>
+
+       
+               
+
+
+                <div class="row">
+                  <div class="input-field col s12">
+                    <button class="btn btn-custom right" type="button" (click)="resetForm(roomForm)">Reset</button>
+                     <button class="btn btn-custom right" type="submit" [disabled]="!roomForm.valid">Submit</button>
+                  </div>
+
+                </div>
+              </form>
+            </div>
+            <div class="col s7">
+                 <table class="responsive-table highlight">
+                    <thead>
+                      <tr>
+                        <th>Room Number</th>
+                        <th>Room Type</th>
+                        <th>Price</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tr *ngFor="let rom of roomService.rooms">
+                      <td>{{rom.roomNo}}</td>
+                      <td>{{rom.roomType}}</td>
+                      <td>{{rom.price}}</td>
+                      <td>
+                        <a class="action-btn" (click)="onEdit(rom)">
+                          <i class="material-icons">edit</i>
+                        </a>
+                        <a class="action-btn" >
+                          <i class="material-icons">delete</i>
+                        </a>
+                      </td>
+                    </tr>
+                  </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </div>

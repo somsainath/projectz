@@ -1,0 +1,19 @@
+<div class="col s7">
+    <table class="responsive-table highlight">
+        <thead>
+          <tr>
+            <th>Booking ID</th>
+            <th>Name</th>
+            <th>CheckIn</th>
+            <th>CheckOut</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tr *ngFor="let book of bookingService.bookings">
+          <td>{{book._id}}</td>
+          <td>{{book.name}}</td>
+          <td>{{book.checkin}}</td>
+          <td>{{book.checkout}}</td>
+        </tr>
+      </table>
+</div>

@@ -1,0 +1,114 @@
+<button mat-raised-button color="accent" routerLink="/manager">Home</button>
+
+
+<div class="row">
+    <div class="col s12">
+      <div class="card">
+        <div class="card-content">
+          <div class="row">
+            <div class="col s5">
+              <form #staffForm="ngForm" (ngSubmit)="onSubmit(staffForm)">
+                <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="staffService.selectedStaff._id" >
+
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input type="text" name="empName" #name="ngModel" [(ngModel)]="staffService.selectedStaff.empName" required placeholder="Enter Employee Name">
+                        <label>Employee Name</label>
+                    </div>
+                </div>
+        
+                
+        <div class="row">
+            <div class="input-field col s12">
+                <input type="text" name="empAddress" #name="ngModel" [(ngModel)]="staffService.selectedStaff.empAddress" required placeholder="Enter Employee Address">
+                <label>Employee Address</label>
+            </div>
+        </div>
+        
+
+        <div class="row">
+            <div class="input-field col s12">
+                <input type="text" name="nic" #name="ngModel" [(ngModel)]="staffService.selectedStaff.nic" placeholder="Enter NIC">
+                <label>NIC</label>
+            </div>
+        </div>
+    
+
+        <div class="row">
+            <div class="input-field col s12">
+                <input type="number" name="Salary" #name="ngModel" [(ngModel)]="staffService.selectedStaff.salary" required placeholder="Enter Salary">
+                <label>Salary </label>
+            </div>
+        </div>
+    
+
+
+        <div class="row">
+            <div class="input-field col s12">
+                <input type="number" name="age" #name="ngModel" [(ngModel)]="staffService.selectedStaff.age" required placeholder="Enter Age">
+                <label>Age</label>
+            </div>
+        </div>
+    
+
+
+
+        <div class="row">
+            <div class="input-field col s12">
+                <input type="text" name="occupation" #name="ngModel" [(ngModel)]="staffService.selectedStaff.occupation" required placeholder="Occupation">
+                <label>Occupation</label>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="input-field col s12 rows s7">
+                <input type="text" name="email" #name="ngModel" [(ngModel)]="staffService.selectedStaff.email" required placeholder="Ex: abc@gamil.com">
+                <label>Email</label>
+            </div>
+        </div>
+
+       
+               
+
+
+                <div class="row">
+                  <div class="input-field col s12">
+                    <button class="btn btn-custom right" type="button" (click)="resetForm(staffForm)">Reset</button>
+                     <button class="btn btn-custom right" type="submit" [disabled]="!staffForm.valid">Submit</button>
+                  </div>
+
+                </div>
+              </form>
+            </div>
+            <div class="col s7">
+                <table class="responsive-table highlight">
+                    <thead>
+                      <tr>
+                        <th>Employee Name</th>
+                        <th>Salary</th>
+                        <th>EMail</th>
+                        <th></th>
+                      </tr>
+                    </thead>
+                    <tr *ngFor="let stf of staffService.staffs">
+                      <td>{{stf.empName}}</td>
+                      <td>{{stf.salary}}</td>
+                      <td>{{stf.occupation}}</td>
+                      <td>
+                          <a class="action-btn" (click)="onEdit(stf)">
+                            <i class="material-icons">edit</i>
+                          </a>
+                          <a class="action-btn" (click)="onDelete(stf._id,staffForm)">
+                            <i class="material-icons">delete</i>
+                          </a>
+                        </td>
+                    </tr>
+                  </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </div>
