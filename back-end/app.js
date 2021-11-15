@@ -9,7 +9,7 @@ app.use(cors({origin: 'http://localhost:4200'}));
 var mongoose = require("mongoose");
 //var mongoose1 = require("mongoose");
 
-mongoose.connect("mongodb+srv://somsainath:test123@cluster0.rpgz5.mongodb.net/test",() =>{
+mongoose.connect("mongodb+srv://somsainath:********@cluster0.rpgz5.mongodb.net/test",() =>{
     console.log("Hotel Database Connected");
 });
 
