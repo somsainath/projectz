@@ -13,7 +13,7 @@ app.use(cors({origin: 'http://localhost:4200'}));
 
 
 
-mongoose.connect("mongodb+srv://somsainath:test123@cluster0.rpgz5.mongodb.net/test1",() =>{
+mongoose.connect("mongodb+srv://somsainath123654789:*******@cluster0.rpgz5.mongodb.net/test1",() =>{
     console.log("User Database Connected");
 });
 
